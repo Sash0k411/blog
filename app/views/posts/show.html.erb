@@ -1,0 +1,8 @@
+<h1><%= @post.title %></h1>
+
+<p><%= @post.description %></p>
+
+<%= image_tag(@post.image) if @post.image.attached? %>
+
+<%= link_to "Edit", edit_post_path(@post) %>
+<%= link_to "Back to Posts", posts_path %>
