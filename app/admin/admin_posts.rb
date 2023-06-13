@@ -1,5 +1,6 @@
-ActiveAdmin.register Post do
+# frozen_string_literal: true
 
+ActiveAdmin.register Post do
   index do
     selectable_column
     id_column

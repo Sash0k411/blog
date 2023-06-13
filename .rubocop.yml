@@ -1,0 +1,4 @@
+Layout/TrailingWhitespace:
+  AllowInHeredoc: true
+Style/FrozenStringLiteralComment:
+  Enabled: true
