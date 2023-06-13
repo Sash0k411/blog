@@ -3,7 +3,11 @@ class PostsController < ApplicationController
   before_action :set_post, only: [:show, :edit, :update, :destroy]
 
   def index
-    @posts = Post.order(:created_at).page(7).per(50)
+    if params[:filter] == 'my_posts'
+      @posts = current_user.posts.order(:title).page(params[:page]).per(6)
+    else
+      @posts = Post.order(:title).page(params[:page]).per(6)
+    end
   end
 
   def show
@@ -35,7 +39,7 @@ class PostsController < ApplicationController
 
   def destroy
     @post.destroy
-    redirect_to posts_url, notice: 'Post was successfully destroyed.'
+    redirect_to posts_path, notice: 'Post was successfully destroyed.'
   end
 
   private

@@ -1,29 +1,12 @@
 <h1>Posts</h1>
 
-<%= link_to "New Post", new_post_path %>
+<%= form_tag(root_path, method: 'get', class: 'form') do %>
+  <%= submit_tag('All Posts', name: 'filter', value: 'all', class: 'filter-button') %>
+  <%= submit_tag('My Posts', name: 'filter', value: 'my_posts', class: 'filter-button') %>
+<% end %>
 
-<table>
-  <thead>
-  <tr>
-    <th>Title</th>
-    <th>Description</th>
-    <th>Image</th>
-    <th>Actions</th>
-  </tr>
-  </thead>
-  <tbody>
-  <% @posts.each do |post| %>
-    <tr>
-      <td><%= link_to post.title, post_path(post) %></td>
-      <td><%= post.description %></td>
-      <td><%= image_tag(post.image) if post.image.attached? %></td>
-      <td>
-        <%= link_to "Edit", edit_post_path(post) %>
-        <%= link_to "Delete", post_path(post), method: :delete, data: { confirm: "Are you sure?" } %>
-      </td>
-    </tr>
-  <% end %>
-  </tbody>
-</table>
+<div class="container-fluid">
+  <%= render 'posts/shared/post_list' %>
+</div>
 
 <%= paginate @posts %>
