@@ -8,9 +8,23 @@
           <div class="card-body">
             <h1 class="card-title text-primary"><%= @post.title %></h1>
             <p class="card-text"><%= @post.description %></p>
+            <p>Likes: <span class="likes-count"><%= @post.get_likes.size %></span></p>
+
+            <% if user_signed_in? %>
+              <% if current_user.voted_for?(@post) %>
+                <%= link_to unlike_post_path(@post), method: :put, remote: true, class: "like-dislike-button" do %>
+                  <i class="fas fa-thumbs-up"></i> Unlike
+                <% end %>
+              <% else %>
+                <%= link_to like_post_path(@post), method: :put, remote: true, class: "like-dislike-button" do %>
+                  <i class="far fa-thumbs-up"></i> Like
+                <% end %>
+              <% end %>
+            <% end %>
+
             <div class="button-group">
-              <%= link_to "Edit", edit_post_path(@post), class: "btn btn-primary btn-sm" %>
-              <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary btn-sm" %>
+              <%= link_to "Edit", edit_post_path(@post), class: "btn btn-outline-primary btn-sm" %>
+              <%= link_to "Back to Posts", posts_path, class: "btn btn-outline-secondary btn-sm" %>
             </div>
           </div>
         </div>
