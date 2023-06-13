@@ -1,8 +1,20 @@
-<h1><%= @post.title %></h1>
-
-<p><%= @post.description %></p>
-
-<%= image_tag(@post.image) if @post.image.attached? %>
-
-<%= link_to "Edit", edit_post_path(@post) %>
-<%= link_to "Back to Posts", posts_path %>
+<%= notice if notice.present?%>
+<div class="content">
+  <div class="container">
+    <div class="row">
+      <div class="col-xs-12 col-sm-4">
+        <div class="card">
+          <%= image_tag(@post.image, class: "card-img-top") if @post.image.attached? %>
+          <div class="card-body">
+            <h1 class="card-title text-primary"><%= @post.title %></h1>
+            <p class="card-text"><%= @post.description %></p>
+            <div class="button-group">
+              <%= link_to "Edit", edit_post_path(@post), class: "btn btn-primary btn-sm" %>
+              <%= link_to "Back to Posts", posts_path, class: "btn btn-secondary btn-sm" %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
