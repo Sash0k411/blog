@@ -36,3 +36,5 @@ vendor/
 .idea/
 tmp
 storage
+log
+data

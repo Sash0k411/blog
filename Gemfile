@@ -37,6 +37,9 @@ gem 'rubocop-rails', require: false
 
 gem 'rails-controller-testing'
 
+gem 'dotenv-rails', groups: [:development, :test]
+
+
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
   gem 'factory_bot_rails'

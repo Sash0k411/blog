@@ -1,8 +1,10 @@
 <h1>Posts</h1>
 
-<%= form_tag(root_path, method: 'get', class: 'form') do %>
-  <%= submit_tag('All Posts', name: 'filter', value: 'all', class: 'filter-button') %>
-  <%= submit_tag('My Posts', name: 'filter', value: 'my_posts', class: 'filter-button') %>
+<% if current_user.present? %>
+  <%= form_tag(root_path, method: 'get', class: 'form') do %>
+    <%= submit_tag('All Posts', name: 'filter', value: 'all', class: 'filter-button') %>
+    <%= submit_tag('My Posts', name: 'filter', value: 'my_posts', class: 'filter-button') %>
+  <% end %>
 <% end %>
 
 <div class="container-fluid">
