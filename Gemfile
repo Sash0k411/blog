@@ -37,8 +37,7 @@ gem 'rubocop-rails', require: false
 
 gem 'rails-controller-testing'
 
-gem 'dotenv-rails', groups: [:development, :test]
-
+gem 'dotenv-rails', groups: %i[development test]
 
 group :development, :test do
   gem 'debug', platforms: %i[mri mingw x64_mingw]
