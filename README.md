@@ -1,24 +1,26 @@
-# README
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+1. Clone this repository to your local machine:
 
-Things you may want to cover:
+   ```
+   git clone https://github.com/Sash0k411/blog
+   ```
 
-* Ruby version
+2. Navigate to the project directory:
 
-* System dependencies
+   ```
+   cd blog
+   ```
 
-* Configuration
+3. Build the Docker image:
 
-* Database creation
+   ```
+   docker build -t blog .
+   ```
 
-* Database initialization
+4. Run the Docker container:
 
-* How to run the test suite
+   ```
+   docker run -p 3000:3000 blog
+   ```
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+   After running this command, blog will be accessible at [http://localhost:3000].
